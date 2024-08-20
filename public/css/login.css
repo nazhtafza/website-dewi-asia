@@ -1,0 +1,57 @@
+body,
+html {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f3f7ff;
+    overflow-x: hidden;
+}
+
+.login-card {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(145, 117, 217, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-card .card-header h2 {
+    color: #121D57;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-card .form-group {
+    margin-bottom: 20px;
+}
+
+.login-card .form-group label {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #121D57;
+    margin-bottom: 15px;
+}
+
+.login-card .card-body button {
+    background-color: #121D57;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+/* tab responsive */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .login-card {
+        margin-top: 20%;
+    }
+}
