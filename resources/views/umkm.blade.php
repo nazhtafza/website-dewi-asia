@@ -39,6 +39,16 @@
                             <h4>{{ $umkm->nama_umkm }}</h4> <!-- Displaying UMKM name -->
                             <p class="harga card-text">Rp {{ number_format($barang->harga_barang, 0, ',', '.') }}</p> <!-- Displaying price -->
                             <p class="telepon card-text">Nomor UMKM: {{ $umkm->nomor_umkm }}</p> <!-- Displaying UMKM phone number -->
+
+                            <a href="{{ route('umkm.details', $umkm->id) }}" class="btn btn-primary mt-3">
+                                Read More
+                            </a>
+
+                            <!-- Collapsible Content -->
+                            {{-- <div class="collapse mt-3" id="collapseDetails{{$loop->parent->index}}{{$loop->index}}">
+                                <h5>Nama Barang: {{ $barang->nama_barang }}</h5>
+                                <p>Deskripsi: {{ $umkm->description }}</p>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\UmkmController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,10 +32,18 @@ Route::get('/paket-wisata', function () {
 Route::get('/register', function () {
     return view('admin.pages.auth.register');
 })->name('register');
+
+
 Route::get('/list-umkm', [UmkmController::class, 'show'])->name('umkm');
-Route::get('/blog', function () {
-    return view('blog');
-});
+
+Route::get('/umkm/{id}', [UMKMController::class, 'details'])->name('umkm.details');
+
+
+
+Route::get('/blog', [BlogPostController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogPostController::class, 'show'])->name('blog.show');
+
+
 // Auth
 Route::get('login', [AuthController::class, 'indexPage'])->name('login');
 Route::post('login', [AuthController::class, 'login']);

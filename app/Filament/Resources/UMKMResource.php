@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 use App\Models\UMKM;
 use Filament\Resources\Resource;
 use App\Filament\Resources\UMKMResource\Pages;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
@@ -36,6 +37,10 @@ class UMKMResource extends Resource
                     ->required()
                     ->unique(ignorable: fn ($record) => $record)
                     ->maxLength(255),
+                Textarea::make('description')
+                    ->label('Description')
+                    ->nullable()
+                    ->rows(5),
             ]);
     }
 
@@ -45,6 +50,13 @@ class UMKMResource extends Resource
             ->columns([
                 TextColumn::make('nama_umkm')->sortable()->searchable(),
                 TextColumn::make('nomor_umkm')->sortable()->searchable(),
+                TextColumn::make('description')
+                    ->label('Description')
+                    ->sortable()
+                    ->searchable()
+                    ->formatStateUsing(fn ($state) => str_word_count($state, 1, '0..9') > 20
+                        ? implode(' ', array_slice(str_word_count($state, 2), 0, 5)) . '...'
+                        : $state),
             ])
             ->filters([
                 //

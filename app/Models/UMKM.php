@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UMKM extends Model
 {
     protected $table = 'umkms';
-    protected $fillable = ['nama_umkm', 'nomor_umkm'];
+    protected $fillable = ['nama_umkm', 'nomor_umkm','description'];
 
     public function barangs()
     {
