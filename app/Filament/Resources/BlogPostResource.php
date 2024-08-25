@@ -29,9 +29,8 @@ public static function form(Form $form): Form
     return $form
         ->schema([
             TextInput::make('title')->required()->maxLength(255),
-            TextInput::make('slug')->required()->unique(),
-            RichEditor::make('content')->required(),
             TextInput::make('author'),
+            RichEditor::make('content')->required(),
             DatePicker::make('published_at'),
             FileUpload::make('banner_image')
                 ->label('Banner Image')

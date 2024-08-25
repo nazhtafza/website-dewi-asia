@@ -15,7 +15,6 @@ class BlogPost extends Model
     protected $fillable = [
         'title',
         'content',
-        'slug',
         'author',
         'banner_image',
         'content_image',
@@ -30,9 +29,16 @@ class BlogPost extends Model
     protected static function boot()
     {
         parent::boot();
-
         static::creating(function ($model) {
-            $model->slug = Str::slug($model->title);
+            if (empty($model->slug)) {
+                $model->slug = Str::slug($model->title);
+            }
+        });
+
+        static::updating(function ($model) {
+            if ($model->isDirty('title')) {
+                $model->slug = Str::slug($model->title);
+            }
         });
     }
 }
