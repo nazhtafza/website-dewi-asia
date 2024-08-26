@@ -32,6 +32,7 @@ html {
 }
 
 .navbar .collapse .btn {
+    display: none;
     background-color: #6D6FF1;
     color: white;
     font-weight: 500;
